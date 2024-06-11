@@ -6,40 +6,21 @@
   */
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	size_t l, r;
-
 	if (tree == NULL)
 		return (0);
-	l = bl(tree->left);
-	r = br(tree->right);
-	if (l > r)
-		return (l);
-	else
-		return (r);
+	return (inc(tree) - 1);
 }
 /**
-  *bl- recursive
-  *@tree: binary tree *
-  *Return: size_t
+  *inc-function
+  *@tree: binary tree
+  *Return: height + 1
   */
-size_t bl(const binary_tree_t *tree)
+size_t inc(const binary_tree_t *tree)
 {
 	if (tree == NULL)
 		return (0);
+	if (inc(tree->left) > inc(tree->right))
+		return (inc(tree->left) + 1);
 	else
-		return (1 + bl(tree->left));
+		return (inc(tree->right) + 1);
 }
-/**
-  *br- recursive
-  *@tree: binary tree *
-  *Return: size_t
-  */
-
-size_t br(const binary_tree_t *tree)
-{
-	if (tree == NULL)
-		return (0);
-	else
-		return (1 + bl(tree->right));
-}
-
