@@ -15,6 +15,11 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	else
 		return (r);
 }
+/**
+  *bl- recursive
+  *@tree: binary tree *
+  *Return: size_t
+  */
 size_t bl(const binary_tree_t *tree)
 {
 	if (tree == NULL)
@@ -22,7 +27,13 @@ size_t bl(const binary_tree_t *tree)
 	else
 		return (1 + bl(tree->left));
 }
-size_t br(const binary_tree_t *tree, size_t l)
+/**
+  *br- recursive
+  *@tree: binary tree *
+  *Return: size_t
+  */
+
+size_t br(const binary_tree_t *tree)
 {
 	if (tree == NULL)
 		return (0);
