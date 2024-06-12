@@ -6,14 +6,14 @@
   */
 int binary_tree_balance(const binary_tree_t *tree)
 {
-	int n;
+	int n, l, r;
 
 	if (tree == NULL)
 		return (0);
-	if (binary_tree_height(tree->left) >= binary_tree_height(tree->right))
-		return (binary_tree_height(tree->left) - binary_tree_height(tree->right));
-	n = binary_tree_height(tree->right) - binary_tree_height(tree->left);
-	return (-n);
+	l = inc(tree->left);
+	r = inc(tree->right);
+	n = l - r;
+	return (n);
 }
 /**
   *binary_tree_height- measures the height of a binary tree
